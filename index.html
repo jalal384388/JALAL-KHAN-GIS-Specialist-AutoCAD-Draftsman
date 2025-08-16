@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jalal Khan - GIS Specialist & AutoCAD Draftsman</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .period {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .responsibilities {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .responsibilities li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #555;
+        }
+
+        .responsibilities li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .header, .section {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header fade-in">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1>JALAL KHAN</h1>
+            <p class="subtitle">GIS Specialist & AutoCAD Draftsman</p>
+            <p style="color: #666; font-size: 1.1em; margin-bottom: 20px;">
+                7+ Years of Professional Experience in GIS, AutoCAD & Quality Analysis
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Vill - Khunkhuna, PO - Khunkhuna, PS - Khunkhuna Station<br>
+                    Dist - Didwana-Kuchaman, Rajasthan, India - 341318</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8104505826</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+966 542 078 697</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>shaelchouhan@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Current Location: Dammam, Saudi Arabia</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Notice Period: Join Immediately</span>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1Gxf-ANHNGeLgu3bRUmXo-yPC4CYNMgxE/view?usp=sharing" class="download-btn" target="_blank">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="section fade-in">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">7+</span>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <div class="stat-label">Companies Worked</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <div class="stat-label">Languages Known</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <div class="stat-label">Countries Worked</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Summary -->
+        <div class="section fade-in">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Career Summary</h2>
+            <p style="font-size: 1.1em; color: #555; line-height: 1.8;">
+                I have total <strong>7+ years of experience</strong> as a GIS Specialist, AutoCAD Draftsman and Quality Analyst. 
+                I have worked with many organizations in Saudi Arabia and India including Australian Building Technology 
+                (Saudi Electricity Company), L&T Hydrocarbon Engineering, Delta Engineering and Construction (TATA Project Limited). 
+                I specialize in creating detailed technical drawings, managing GIS data, and ensuring quality control in engineering projects.
+            </p>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section fade-in">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">GIS Draftsman, AutoCAD Draftsman</div>
+                <div class="company">Australian Building Technology (Saudi Electricity Company), Dammam, K.S.A</div>
+                <div class="period">March 2023 to Present</div>
+                <ul class="responsibilities">
+                    <li>Created detailed technical drawings and electrical blueprints using AutoCAD, AutoCAD Revit, and SolidWorks</li>
+                    <li>Designed, edited, and managed GIS data using ArcGIS Desktop, ArcGIS Pro, ArcGIS Map, and QGIS</li>
+                    <li>Developed electrical distribution drawings, MV & LV network layouts for Saudi Electricity Company</li>
+                    <li>Performed spatial analysis, data visualization, and mapping services using advanced GIS tools</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Civil Supervisor</div>
+                <div class="company">L&T Hydrocarbon Engineering (Suhana Construction Company), Rajasthan, India</div>
+                <div class="period">September 2021 to March 2023</div>
+                <ul class="responsibilities">
+                    <li>Supervised civil engineering projects and construction activities</li>
+                    <li>Coordinated with engineering teams for project execution</li>
+                    <li>Ensured quality control and compliance with technical specifications</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Civil Supervisor</div>
+                <div class="company">Delta Engineering and Construction (TATA Project Limited), Rajasthan, India</div>
+                <div class="period">August 2019 to June 2021</div>
+                <ul class="responsibilities">
+                    <li>Managed civil engineering projects and site supervision</li>
+                    <li>Prepared technical reports and project documentation</li>
+                    <li>Maintained adherence to industry standards and safety protocols</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Quality Analyst (Team Leader)</div>
+                <div class="company">IPSOS India Pvt Ltd, Rajasthan, India</div>
+                <div class="period">December 2016 to April 2019</div>
+                <ul class="responsibilities">
+                    <li>Led quality analysis team and performed quality control checks</li>
+                    <li>Developed quality assurance processes and procedures</li>
+                    <li>Managed team performance and provided technical guidance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section fade-in">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Technical & Software Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-drafting-compass"></i> CAD Software</h3>
+                    <ul class="skill-list">
+                        <li>AutoCAD</li>
+                        <li>AutoCAD Revit</li>
+                        <li>SolidWorks</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-map"></i> GIS Software</h3>
+                    <ul class="skill-list">
+                        <li>ArcGIS Desktop</li>
+                        <li>ArcGIS Pro</li>
+                        <li>ArcGIS Map</li>
+                        <li>QGIS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop"></i> Operating Systems & Office</h3>
+                    <ul class="skill-list">
+                        <li>MS Office (Word, Excel, PowerPoint)</li>
+                        <li>Internet & Email</li>
+                        <li>Google Earth Mapping</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <ul class="skill-list">
+                        <li>Office Management (SOFTAL)</li>
+                        <li>RS-CIT (Vardhman University)</li>
+                        <li>GIS Basics, Mapping and Visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Responsibilities -->
+        <div class="section fade-in">
+            <h2 class="section-title"><i class="fas fa-tasks"></i> Key Responsibilities & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-pencil-ruler"></i> Technical Drawing</h3>
+                    <ul class="skill-list">
+                        <li>AutoCAD & Technical Drawings</li>
+                        <li>Electrical System Drawings</li>
+                        <li>CAD File Management</li>
+                        <li>Drawing Standards Compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> GIS & Data Management</h3>
+                    <ul class="skill-list">
+                        <li>GIS Data Management</li>
+                        <li>Geospatial Analysis</li>
+                        <li>GIS Database Development</li>
+                        <li>Digital Mapping</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
+                    <ul class="skill-list">
+                        <li>Project Documentation</li>
+                        <li>Quality Control</li>
+                        <li>Software Integration</li>
+                        <li>Field Data Collection</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Leadership Skills</h3>
+                    <ul class="skill-list">
+                        <li>Team Leadership and Supervision</li>
+                        <li>Communication and Problem-solving</li>
+                        <li>Highly self-motivated and focused</li>
+                        <li>Innovative with continuous learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Qualifications -->
+        <div class="section fade-in">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Academic Qualifications</h2>
+            
+            <div class="education-item">
+                <div class="job-title">Civil Engineering (Polytechnic)</div>
+                <div class="company">Board of Technical Education, Rajasthan (B.T.E.R.)</div>
+                <div class="period">2016</div>
+            </div>
+
+            <div class="education-item">
+                <div class="job-title">Higher Secondary Education (12th)</div>
+                <div class="company">Board of Secondary Education Rajasthan (B.S.E.R.)</div>
+                <div class="period">2012</div>
+            </div>
+
+            <div class="education-item">
+                <div class="job-title">Secondary Education (10th)</div>
+                <div class="company">Board of Secondary Education Rajasthan (B.S.E.R.)</div>
+                <div class="period">2010</div>
+            </div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="section fade-in">
+            <h2 class="section-title"><i class="fas fa-user"></i> Personal Information</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-info-circle"></i> Basic Details</h3>
+                    <ul class="skill-list">
+                        <li>Father Name: Rehman Khan</li>
+                        <li>Date of Birth: 25-Mar-1994</li>
+                        <li>Nationality: Indian</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-language"></i> Languages Known</h3>
+                    <ul class="skill-list">
+                        <li>English</li>
+                        <li>Arabic</li>
+                        <li>Hindi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section, .header').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Add hover effects to skill items
+            document.querySelectorAll('.skill-list li').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.color = '#667eea';
+                    this.style.paddingLeft = '25px';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.color = '#666';
+                    this.style.paddingLeft = '20px';
+                });
+            });
+        });
+
+        // Add click effect to download button
+        document.querySelector('.download-btn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px)';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
